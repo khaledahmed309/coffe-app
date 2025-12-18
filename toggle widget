@@ -1,0 +1,79 @@
+import 'package:flutter/material.dart';
+
+enum DrinkTemperature { hot, iced }
+
+class ToggleWidget extends StatefulWidget {
+  const ToggleWidget({super.key});
+
+  @override
+  State<ToggleWidget> createState() => _ToggleWidgetState();
+}
+
+class _ToggleWidgetState extends State<ToggleWidget> {
+  DrinkTemperature _selectedTemp = DrinkTemperature.hot;
+
+  final Color _greyBackground = const Color(0xFFE0E0E0);
+  final Color _activeColor = Colors.white;
+
+  Widget _buildOption({
+    required String text,
+    required DrinkTemperature optionTemp,
+  }) {
+    final bool isSelected = _selectedTemp == optionTemp;
+
+    final Color textColor = isSelected ? Colors.black : Colors.black54;
+    final FontWeight fontWeight = isSelected ? FontWeight.bold : FontWeight.normal;
+
+    return Expanded(
+      child: GestureDetector(
+        onTap: () {
+          setState(() {
+            _selectedTemp = optionTemp;
+          });
+        },
+        child: Container(
+          decoration: BoxDecoration(
+            color: isSelected ? _activeColor : _greyBackground,
+            borderRadius: BorderRadius.circular(50),
+          ),
+          alignment: Alignment.center,
+          padding: const EdgeInsets.symmetric(vertical: 12),
+          child: Text(
+            text,
+            style: TextStyle(
+              color: textColor,
+              fontWeight: fontWeight,
+              fontSize: 18,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: _greyBackground,
+        borderRadius: BorderRadius.circular(50),
+      ),
+      padding: const EdgeInsets.all(4),
+
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          _buildOption(
+            text: 'Hot',
+            optionTemp: DrinkTemperature.hot,
+          ),
+          const SizedBox(width: 4),
+          _buildOption(
+            text: 'Iced',
+            optionTemp: DrinkTemperature.iced,
+          ),
+        ],
+      ),
+    );
+  }
+}
