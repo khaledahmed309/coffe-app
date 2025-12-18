@@ -1,0 +1,61 @@
+class DrinkModel {
+  final String image;
+  final String name;
+  final String title;
+  final String price;
+
+  DrinkModel({
+
+    required this.image,
+    required this.name,
+    required this.title,
+
+    required this.price,
+  });
+
+  static List<DrinkModel> drinks = [
+    DrinkModel(
+      image:  "assets/Banana.png",
+      name:" milkshake",
+      title: "10 flavors of cups",
+      price: "90",
+    ),
+    DrinkModel(
+      image:  "assets/Salted Caramel.png",
+      name:" Salted Caramel",
+      title: "10 flavors of cups",
+      price: "150",
+    ),
+    DrinkModel(
+      image:  "assets/Chocolate.png",
+      name:" Chocolate",
+      title: "5 flavors of cups",
+      price: "80",
+    ),
+    DrinkModel(
+      image:  "assets/Peanut Butter.png",
+      name:" Peanut Butter",
+      title: "15 flavors of cups",
+      price: "100",
+    ),
+    DrinkModel(
+      image:  "assets/Salted Caramel.png",
+      name:" Salted Caramel",
+      title: "10 flavors of cups",
+      price: "150",
+    ),
+    DrinkModel(
+      image:  "assets/Chocolate.png",
+      name:" Chocolate",
+      title: "5 flavors of cups",
+      price: "80",
+    ),
+  DrinkModel(
+  image:  "assets/Banana.png",
+  name:" milkshake",
+  title: "10 flavors of cups",
+  price: "90",
+  ),
+
+  ];
+}
